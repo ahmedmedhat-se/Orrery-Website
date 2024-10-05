@@ -6,6 +6,8 @@ import Homepage from './Homepage';
 import News from './News';
 import CosmicExplorer from './CosmicExplorer';
 import PhaExplorer from './PhaExplorer';
+import Workspace from "./Workspace.js";
+import Userin from "./Userin.js";
 import Footer from './Footer';
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path='/news' element={<News />}></Route>
           <Route path='/cosmic-explorer' element={<CosmicExplorer />}></Route>
           <Route path='/pha-explorer' element={<PhaExplorer />}></Route>
+          <Route path="/workspace" element={<Workspace />}></Route>
+          <Route path="/login" element={<Userin />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

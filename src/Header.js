@@ -26,13 +26,17 @@ function Header() {
                         <li className='nav-item'>
                             <Link className='nav-link' to='/pha-explorer'>NEO Explorer</Link>
                         </li>
+                        <li className='nav-item'>
+                            <Link className='nav-link' to='/workspace'>Worksapce</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>
             <header>
                 <h1>WELCOME</h1>
                 <h4>To Our Universe <span>Galactic Pioneers</span></h4>
-                <p>We are a team of web developers / scientific researxhers</p>    
+                <p>We are a team of web developers / scientific researxhers</p>
+                <Link className='btn btn-secondary' to='/login'>Login</Link>
             </header>
         </article>
     )

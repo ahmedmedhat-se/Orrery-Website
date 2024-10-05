@@ -97,13 +97,23 @@ header h4 span {
 }
 
 header .btn {
-  font-size: 20px;
+  margin-top: 20px;
   border: none;
-  transition: 1s;
+  color: #000;
+  background: rgb(19, 3, 61);
+  background: linear-gradient(223deg, rgba(238, 174, 202, 1) 47%, rgba(148, 187, 233, 1) 100%);
+  text-decoration: none;
+  font-weight: bold;
+  width: 50%;
 }
 
 header .btn:hover {
-  background-color: #5c516c;
+  margin-top: 20px;
+  border: none;
+  color: #000;
+  background: rgb(15, 3, 46);
+  background: linear-gradient(220deg, rgba(148, 187, 233, 1) 50%, rgba(238, 174, 202, 1) 100%);
+  text-decoration: none;
 }
 
 header p {
@@ -252,6 +262,115 @@ header p {
 /* News-section Section Styling Ends */
 /* Homepage Component Styling Ends */
 
+/* Workspace Component Styling Starts */
+.worksapce-container {
+  width: 100%;
+  background-color: #080a0c;
+  background: linear-gradient(135deg, #0f1217 0%, #0d1117 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#workspace {
+  width: 600px;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #071324;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media(max-width: 768px) {
+  #workspace {
+    width: 90%;
+  }
+}
+
+#workspace h2 {
+  color: var(--light-heading-clr);
+  font-family: 'Orbitron', sans-serif;
+}
+
+#workspace form button {
+  background-color: #0f0845;
+}
+
+#comments h4 {
+  color: var(--light-heading-clr);
+  font-family: 'Orbitron', sans-serif;
+} 
+#comments li {
+  color: var(--light-heading-clr);
+} 
+
+#workspace .btn {
+  background-color: #0f0845;
+  color: #fff;
+}
+/* Workspace Component Styling Ends */
+
+/* User-in Component Styling Starts */
+.user-in {
+  width: 100%;
+  background-color: #080a0c;
+  background: linear-gradient(135deg, #0f1217 0%, #0d1117 100%);
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userInfo-container {
+  width: 500px;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #071324;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.userInfo-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.userInfo-container label {
+  font-size: 18px;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.userInfo-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.userInfo-container button {
+  padding: 10px;
+  margin-top: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.userInfo-container p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+/* User-in Component Styling Ends */
+
 /* Footer Component Styling Starts */
 footer section{
   max-height: 100vh;
@@ -356,6 +475,34 @@ footer #div-footer {
   .cosmic-explorer {
     padding: 20px;
     border: none;
+    background-color: #071324;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #workspace {
+    width: 100%;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #071324;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .user-in {
+    width: 100%;
+    background-color: #080a0c;
+    background: linear-gradient(135deg, #0f1217 0%, #0d1117 100%);
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .userInfo-container {
+    width: 100%;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
     background-color: #071324;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
