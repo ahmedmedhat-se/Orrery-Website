@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Interactive Solar System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="solarSystemContainer"></div>
+    <div id="controls">
+        <button class="btn btn-secondary" id="zoomIn">Zoom In</button>
+        <button class="btn btn-secondary" id="zoomOut">Zoom Out</button>
+        <button class="btn btn-secondary" id="topView">Top View</button>
+        <button class="btn btn-secondary" id="startAnimation">Start Animation</button>
+        <button class="btn btn-secondary" id="stopAnimation">Stop Animation</button>
+        <button class="btn btn-secondary" id="resumeAnimation">Resume Animation</button>
+    </div>
+
+    <div id="detailedInfoBox" style="display: none;">
+        <h2 id="detailedPlanetName"></h2>
+        <p id="detailedPlanetInfo"></p>
+        <img id="detailedPlanetImage" src="" alt="Planet Image" style="max-width: 100%; height: auto;">
+        <a href="" target="_blank" id="view-btn" class="btn w-100 d-block">View</a>
+    </div>
+
+    <!-- Three.js Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Tween.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+    <!-- EffectComposer, RenderPass, and BokehPass -->
+    <script
+        src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/postprocessing/BokehPass.js"></script>
+    <!-- Custom Script -->
+    <script src="main.js"></script>
+</body>
+
+</html>

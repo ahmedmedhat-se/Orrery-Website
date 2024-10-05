@@ -1,0 +1,110 @@
+/* Styling The Whole Document - Starts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    font-family: 'Orbitron', sans-serif;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#solarSystemContainer {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #000000, #00274d);
+}
+
+/* Styling The Controls Buttons - Starts */
+#controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+}
+
+#controls button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#controls button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Styling The Controls Buttons - Ends */
+
+/* Styling The Detailed Info Box - Starts */
+#detailedInfoBox {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 10px;
+    max-width: 300px;
+}
+
+#detailedPlanetImage {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+#view-btn {
+    margin-top: 20px;
+    border: none;
+    background: rgb(19, 3, 61);
+    color: #000;
+    background: linear-gradient(223deg, rgba(238, 174, 202, 1) 47%, rgba(148, 187, 233, 1) 100%);
+    text-decoration: none;
+    transition: 1s;
+    margin-right: 8px;
+}
+
+/* Styling The Detailed Info Box - Ends */
+
+@media(max-width: 968px) {
+
+    /* Styling The Controls Buttons - Starts */
+    #controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    #controls button {
+        margin: 2px;
+        padding: 5px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    /* Styling The Controls Buttons - Ends */
+}
+/* Styling The Whole Document - Ends */
