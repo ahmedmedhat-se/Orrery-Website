@@ -14,6 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/homepage' element={<Homepage />}></Route>
+          <Route path='/Orrery-Website' element={<Homepage />}></Route>
           <Route path='/' element={<Homepage />}></Route>
           <Route path='/galactic-pioneers' element={<Homepage />}></Route>
           <Route path='/news' element={<News />}></Route>
