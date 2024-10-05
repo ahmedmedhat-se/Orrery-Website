@@ -211,7 +211,6 @@ header p {
 .news-section {
   padding: 20px;
   border: none;
-  border-radius: 10px;
   background-color: #071324;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
