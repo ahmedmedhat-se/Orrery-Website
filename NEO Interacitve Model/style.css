@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1rem; /* Use rem for consistency */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #00aaff;
+    margin: 0; /* Ensure consistent spacing */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure the main content uses full width */
+    max-width: 1200px; /* Limit the max width */
+    padding: 0 1rem; /* Add horizontal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#x3d {
+    border: 2px solid #333;
+    background-color: #111;
+    border-radius: 10px;
+    margin-bottom: 1rem; /* Use rem for consistency */
+    width: 100%;
+    max-width: 800px; /* Limit the max width */
+}
+
+.controls {
+    margin-bottom: 1rem; /* Use rem for consistency */
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center the buttons */
+}
+
+button {
+    margin: 0.5rem; /* Use rem for consistency */
+    padding: 0.5rem 1rem; /* Use rem for consistency */
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Adjust heading size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        padding: 0.5rem; /* Adjust padding for very small screens */
+        font-size: 0.9rem; /* Adjust font size for very small screens */
+    }
+
+    main {
+        padding: 0 0.5rem; /* Reduce padding for very small screens */
+    }
+}

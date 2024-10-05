@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth and Potentially Hazardous Asteroids (PHA) - 3D Version</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.x3dom.org/release/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/release/x3dom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .btn,
+        button {
+            margin-left: 10px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevents scrollbars from appearing */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+            /* Use rem for consistency */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00aaff;
+            margin: 0;
+            /* Ensure consistent spacing */
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            /* Ensure the main content uses full width */
+            max-width: 1200px;
+            /* Limit the max width */
+            padding: 0 1rem;
+            /* Add horizontal padding */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+        }
+
+        #x3d {
+            border: 2px solid #333;
+            background-color: #111;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            /* Use rem for consistency */
+            width: 100%;
+            max-width: 800px;
+            /* Limit the max width */
+        }
+
+        .controls {
+            margin-bottom: 1rem;
+            /* Use rem for consistency */
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow buttons to wrap on smaller screens */
+            justify-content: center;
+            /* Center the buttons */
+        }
+
+        button {
+            margin: 0.5rem;
+            /* Use rem for consistency */
+            padding: 0.5rem 1rem;
+            /* Use rem for consistency */
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                /* Adjust heading size for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            button {
+                padding: 0.5rem;
+                /* Adjust padding for very small screens */
+                font-size: 0.9rem;
+                /* Adjust font size for very small screens */
+            }
+
+            main {
+                padding: 0 0.5rem;
+                /* Reduce padding for very small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>3D Earth and Potentially Hazardous Asteroids (PHA)</h1>
+    </header>
+
+    <main>
+        <!-- Animation and Controls -->
+        <div class="controls">
+            <button class="btn btn-secondary" id="play">Play</button>
+            <button class="btn btn-secondary" id="pause">Pause</button>
+        </div>
+
+        <!-- 3D Scene with Earth and PHAs -->
+        <x3d id="x3d" width='800px' height='600px'>
+            <scene>
+                <!-- Add lighting for 3D effect -->
+                <pointLight intensity="0.9" position="10 10 10"></pointLight>
+                <pointLight intensity="0.5" position="-10 -10 -10"></pointLight>
+
+                <!-- Camera -->
+                <viewpoint id="mainCamera" position="0 0 30" description="Main view"></viewpoint>
+
+                <!-- Earth Model with 3D texture -->
+                <transform translation="0 0 0">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.0 0.5 1.0" shininess="0.9"></material>
+                            <imageTexture
+                                url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDlFHxKMR5KKvpCui5TPy7UAkZ9Zab4Z99ArQz9QqDeWzQWqAwgIRsaK8BVsBy7yor3p4&usqp=CAU">
+                            </imageTexture>
+                        </appearance>
+                        <sphere radius="2"></sphere>
+                    </shape>
+                    <!-- Earth Label -->
+                    <billboard axisOfRotation="0 0 0">
+                        <transform translation="0 3 0">
+                            <shape>
+                                <text string='"Earth"' solid='true'>
+                                    <fontstyle size='0.5' justify='MIDDLE'></fontstyle>
+                                </text>
+                                <appearance>
+                                    <material diffuseColor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+                    </billboard>
+                </transform>
+
+                <!-- PHAs with 3D Spheres -->
+                <transform id="asteroid1" translation="10 0 0">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.6 0.6 0.6" shininess="0.2"></material>
+                            <imageTexture
+                                url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRr1lafhCZlgwjxGImXbUSFF122gOz9eTfv7wP2dWQGD8oaqC4fYLQ9PbQrgCWgT2nG3A&usqp=CAU">
+                            </imageTexture>
+                        </appearance>
+                        <sphere radius="0.5"></sphere>
+                    </shape>
+                    <!-- Asteroid Label -->
+                    <billboard axisOfRotation="0 0 0">
+                        <transform translation="0 1.5 0">
+                            <shape>
+                                <text string='"(523522) 2018 HA"' solid='true'>
+                                    <fontstyle size='0.4' justify='MIDDLE'></fontstyle>
+                                </text>
+                                <appearance>
+                                    <material diffuseColor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+                    </billboard>
+                </transform>
+
+                <transform id="asteroid2" translation="-14 0 0">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor="0.7 0.7 0.7" shininess="0.2"></material>
+                            <imageTexture
+                                url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRr1lafhCZlgwjxGImXbUSFF122gOz9eTfv7wP2dWQGD8oaqC4fYLQ9PbQrgCWgT2nG3A&usqp=CAU">
+                            </imageTexture>
+                        </appearance>
+                        <sphere radius="0.8"></sphere>
+                    </shape>
+                    <!-- Asteroid Label -->
+                    <billboard axisOfRotation="0 0 0">
+                        <transform translation="0 2.0 0">
+                            <shape>
+                                <text string='"(46610) 1996 JF1"' solid='true'>
+                                    <fontstyle size='0.4' justify='MIDDLE'></fontstyle>
+                                </text>
+                                <appearance>
+                                    <material diffuseColor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+                    </billboard>
+                </transform>
+
+                <transform translation="18 0 0">
+                    <shape id="asteroid3">
+                        <appearance>
+                            <material diffuseColor="0.5 0.5 0.5" shininess="0.3"></material>
+                            <imageTexture
+                                url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRr1lafhCZlgwjxGImXbUSFF122gOz9eTfv7wP2dWQGD8oaqC4fYLQ9PbQrgCWgT2nG3A&usqp=CAU">
+                            </imageTexture>
+                        </appearance>
+                        <sphere radius="0.6"></sphere>
+                    </shape>
+                    <!-- Asteroid Label -->
+                    <billboard axisOfRotation="0 0 0">
+                        <transform translation="0 1.7 0">
+                            <shape>
+                                <text string='"(2010 KQ)"' solid='true'>
+                                    <fontstyle size='0.4' justify='MIDDLE'></fontstyle>
+                                </text>
+                                <appearance>
+                                    <material diffuseColor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+                    </billboard>
+                </transform>
+
+                <!-- Orbits around the Earth -->
+                <!-- Orbit 1 -->
+                <shape id="orbit1" visible="true">
+                    <appearance>
+                        <material emissiveColor="0.5 0.5 1"></material>
+                    </appearance>
+                    <indexedLineSet coordIndex="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 0">
+                        <coordinate point="
+            10 0 0, 9.51 0 3.09, 8.09 0 5.88, 5.88 0 8.09, 3.09 0 9.51, 0 0 10,
+            -3.09 0 9.51, -5.88 0 8.09, -8.09 0 5.88, -9.51 0 3.09, -10 0 0,
+            -9.51 0 -3.09, -8.09 0 -5.88, -5.88 0 -8.09, -3.09 0 -9.51, 0 0 -10,
+            3.09 0 -9.51, 5.88 0 -8.09, 8.09 0 -5.88, 9.51 0 -3.09, 10 0 0
+        "></coordinate>
+                    </indexedLineSet>
+                </shape>
+
+                <!-- Orbit 2 -->
+                <shape id="orbit2" visible="true">
+                    <appearance>
+                        <material emissiveColor="0.5 0.7 1"></material>
+                    </appearance>
+                    <indexedLineSet coordIndex="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 0">
+                        <coordinate point="
+            14 0 0, 13.31 0 4.33, 11.33 0 8.23, 8.23 0 11.33, 4.33 0 13.31, 0 0 14,
+            -4.33 0 13.31, -8.23 0 11.33, -11.33 0 8.23, -13.31 0 4.33, -14 0 0,
+            -13.31 0 -4.33, -11.33 0 -8.23, -8.23 0 -11.33, -4.33 0 -13.31, 0 0 -14,
+            4.33 0 -13.31, 8.23 0 -11.33, 11.33 0 -8.23, 13.31 0 -4.33, 14 0 0
+        "></coordinate>
+                    </indexedLineSet>
+                </shape>
+
+                <!-- Orbit 3 -->
+                <shape id="orbit3" visible="true">
+                    <appearance>
+                        <material emissiveColor="0.7 0.5 1"></material>
+                    </appearance>
+                    <indexedLineSet coordIndex="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 0">
+                        <coordinate point="
+            18 0 0, 17.15 0 5.59, 14.57 0 10.58, 10.58 0 14.57, 5.59 0 17.15, 0 0 18,
+            -5.59 0 17.15, -10.58 0 14.57, -14.57 0 10.58, -17.15 0 5.59, -18 0 0,
+            -17.15 0 -5.59, -14.57 0 -10.58, -10.58 0 -14.57, -5.59 0 -17.15, 0 0 -18,
+            5.59 0 -17.15, 10.58 0 -14.57, 14.57 0 -10.58, 17.15 0 -5.59, 18 0 0
+        "></coordinate>
+                    </indexedLineSet>
+                </shape>
+
+            </scene>
+        </x3d>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const asteroid1 = document.getElementById('asteroid1');
+            const asteroid2 = document.getElementById('asteroid2');
+            const asteroid3 = document.getElementById('asteroid3');
+            const orbit1 = document.getElementById('orbit1');
+            const orbit2 = document.getElementById('orbit2');
+            const orbit3 = document.getElementById('orbit3');
+            const labels = document.querySelectorAll('billboard');
+            const infoBox = document.getElementById('info-box');
+
+            let angle1 = 0;
+            let angle2 = 0;
+            let angle3 = 0;
+            const radius1 = 10;
+            const radius2 = 14;
+            const radius3 = 18;
+            let animationFrame;
+            let playing = false;
+
+            function rotateAsteroids() {
+                if (playing) {
+                    angle1 += 0.01;  // Speed of asteroid 1
+                    angle2 += 0.008;  // Speed of asteroid 2 (slightly slower)
+                    angle3 += 0.005;  // Speed of asteroid 3 (slowest)
+
+                    // Calculate X and Z positions for circular orbit
+                    const x1 = radius1 * Math.cos(angle1);
+                    const z1 = radius1 * Math.sin(angle1);
+                    asteroid1.setAttribute('translation', `${x1} 0 ${z1}`);
+
+                    const x2 = radius2 * Math.cos(angle2);
+                    const z2 = radius2 * Math.sin(angle2);
+                    asteroid2.setAttribute('translation', `${x2} 0 ${z2}`);
+
+                    const x3 = radius3 * Math.cos(angle3);
+                    const z3 = radius3 * Math.sin(angle3);
+                    asteroid3.setAttribute('translation', `${x3} 0 ${z3}`);
+
+                    // Continue the animation loop
+                    animationFrame = requestAnimationFrame(rotateAsteroids);
+                }
+            }
+
+            function playAnimation() {
+                playing = true;
+                rotateAsteroids();
+            }
+
+            function pauseAnimation() {
+                playing = false;
+                cancelAnimationFrame(animationFrame);
+            }
+
+            function toggleOrbits() {
+                orbit1.style.display = orbit1.style.display === 'none' ? 'inline' : 'none';
+                orbit2.style.display = orbit2.style.display === 'none' ? 'inline' : 'none';
+                orbit3.style.display = orbit3.style.display === 'none' ? 'inline' : 'none';
+            }
+
+            function toggleLabels() {
+                labels.forEach(label => {
+                    label.style.display = label.style.display === 'none' ? 'inline' : 'none';
+                });
+            }
+
+            document.getElementById('play').addEventListener('click', playAnimation);
+            document.getElementById('pause').addEventListener('click', pauseAnimation);
+            document.getElementById('toggle-orbits').addEventListener('click', toggleOrbits);
+            document.getElementById('toggle-labels').addEventListener('click', toggleLabels);
+        });
+
+    </script>
+</body>
+
+</html>
